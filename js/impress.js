@@ -186,8 +186,8 @@
         var isStep = function ( el ) {
             return !!(el && el.id && stepData["impress-" + el.id]);
         }
-        
-        steps.forEach(function ( el, idx ) {
+
+		var drawSlide = function ( el, idx ) {
             var data = el.dataset,
                 step = {
                     translate: {
@@ -218,8 +218,9 @@
                            scale(step.scale),
                 transformStyle: "preserve-3d"
             });
-            
-        });
+
+        };
+        steps.forEach(drawSlide);
 
         // making given step active
 
@@ -342,7 +343,7 @@
 
 (function ( document, window ) {
     'use strict';
-    
+	return;
     // keyboard navigation handler
     document.addEventListener("keydown", function ( event ) {
         if ( event.keyCode == 9 || ( event.keyCode >= 32 && event.keyCode <= 34 ) || (event.keyCode >= 37 && event.keyCode <= 40) ) {
